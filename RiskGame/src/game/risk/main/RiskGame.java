@@ -26,7 +26,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 
 import game.risk.util.MapReader;
-import game.risk.util.RiskConstants;
+import game.risk.util.RiskGameConstants;
 import game.risk.util.RiskMap;
 import game.risk.util.Territory;
 
@@ -69,7 +69,7 @@ public class RiskGame {
         headerPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         
         headerPanel.setPreferredSize(new Dimension(600, 40));
-        headerPanel.add(customJLabel(RiskConstants.GAME_NAME, 30, Color.BLACK));
+        headerPanel.add(customJLabel(RiskGameConstants.GAME_NAME, 30, Color.BLACK));
         headerPanel.add(customJLabel(status, 20, Color.BLACK));
         
         middlePanel.setLayout(new GridLayout(0,1));
@@ -101,7 +101,7 @@ public class RiskGame {
 		JLabel warning = customJLabel("Select a Map?", 15, Color.RED);
 		
 		
-		middleStartPanel.add(customJLabel(RiskConstants.SELECT_MAP, 20, Color.BLACK));
+		middleStartPanel.add(customJLabel(RiskGameConstants.SELECT_MAP, 20, Color.BLACK));
 		middleStartPanel.add(warning);
 		warning.setVisible(false);
 		middleStartPanel.add(listOfMaps); 
@@ -109,9 +109,9 @@ public class RiskGame {
 		JPanel temp = getPanel();
 		temp.setLayout(new FlowLayout(FlowLayout.CENTER));
 		
-		JButton okButton = customJButton(RiskConstants.OK, 15);
+		JButton okButton = customJButton(RiskGameConstants.OK, 15);
 		temp.add(okButton); 
-		JButton cancelButton = customJButton(RiskConstants.CANCEL, 15);
+		JButton cancelButton = customJButton(RiskGameConstants.CANCEL, 15);
 		temp.add(cancelButton); 
 		
 		okButton.addActionListener(new ActionListener() {
@@ -120,7 +120,7 @@ public class RiskGame {
 				if(listOfMaps.getSelectedValue()!= null){
 					mapSeleted = listOfMaps.getSelectedValue();
 					
-					RiskConstants.SELECTED_MAP = mapSeleted;
+					RiskGameConstants.SELECTED_MAP = mapSeleted;
 					
 					/*middleStartPanel.removeAll();
 					middleStartPanel.revalidate();
@@ -177,7 +177,7 @@ public class RiskGame {
 		
 		//riskGame.setGamePanels(middlePanel, "Map Selection");
 		
-		riskGame.setGamePanels(middlePanel, RiskConstants.SELECTED_MAP);
+		riskGame.setGamePanels(middlePanel, RiskGameConstants.SELECTED_MAP);
 		
 		
 	}
